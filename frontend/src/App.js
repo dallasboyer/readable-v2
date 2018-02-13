@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
-import { Switch, Route, /*withRouter*/ } from 'react-router-dom'
+import { Switch, Route } from 'react-router-dom'
+import { connect } from 'react-redux'
 
 import { Container, Header, Icon } from 'semantic-ui-react'
 
@@ -7,10 +8,12 @@ import ViewAll from './components/ViewAll'
 import NotFound from './components/NotFound'
 import CategoryNav from './components/CategoryNav'
 
+import { fetchCategories } from './actions/categories'
+
 class App extends Component {
   componentDidMount(){
     // TODO fetch all posts
-    // TODO fetch all categories
+    this.props.fetchCategories()
   }
   render() {
     return (
@@ -23,7 +26,7 @@ class App extends Component {
         </Header>
 
         <CategoryNav
-          // TODO categories={}
+          categories={this.props.categories}
         />
         
         <Switch>
@@ -45,5 +48,14 @@ class App extends Component {
   }
 }
 
-export default App
-// export default withRouter(App)
+const mapStateToProps = (state, props) => {
+  return {
+    categories: state.categories.categories,
+  }
+}
+
+const mapDispatchToProps = dispatch => ({
+  fetchCategories: () => dispatch(fetchCategories())
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(App)

@@ -11,9 +11,10 @@ export default class CategoryNav extends Component {
 
     return (
       <Menu inverted>
-        <Menu.Item name='home' active={activeItem === 'home'} onClick={this.handleItemClick} />
-        <Menu.Item name='cat1' active={activeItem === 'cat1'} onClick={this.handleItemClick} />
-        <Menu.Item name='cat2' active={activeItem === 'cat2'} onClick={this.handleItemClick} />
+        <Menu.Item name="Home" active={activeItem === `Home`} onClick={this.handleItemClick} />
+        {this.props.categories.map((item, index) => (
+          <Menu.Item key={index} name={item.name} active={activeItem === `${item.name}`} onClick={this.handleItemClick} />
+        ))}
       </Menu>
     )
   }
