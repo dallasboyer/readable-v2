@@ -1,8 +1,11 @@
 import React, { Component } from 'react'
-// import './App.css'
 import { Switch, Route, /*withRouter*/ } from 'react-router-dom'
+
+import { Container, Header, Icon } from 'semantic-ui-react'
+
 import ViewAll from './components/ViewAll'
 import NotFound from './components/NotFound'
+import CategoryNav from './components/CategoryNav'
 
 class App extends Component {
   componentDidMount(){
@@ -12,9 +15,16 @@ class App extends Component {
   render() {
     return (
       <div>
-        <header>
-          <h1>Readable V2</h1>
-        </header>
+        <Header as='h2' icon textAlign='center'>
+          <Icon name='talk outline' />
+          <Header.Content>
+            Readable V2
+          </Header.Content>
+        </Header>
+
+        <CategoryNav
+          // TODO categories={}
+        />
         
         <Switch>
           <Route exact strict path="/" render={() => (
@@ -27,9 +37,9 @@ class App extends Component {
           )} />
         </Switch>
 
-        <footer>
+        <Container fluid textAlign="center">
           Made by Dallas
-        </footer>
+        </Container>
       </div>
     )
   }

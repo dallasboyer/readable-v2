@@ -1,11 +1,12 @@
 import React, { Component } from 'react'
+import { Container } from 'semantic-ui-react'
 
 class ViewAll extends Component {
   render() {
     return (
-      <main>
-        <h1>All Posts</h1>
-      </main>
+      <Container>
+        [View ALl]
+      </Container>
     )
   }
 }
