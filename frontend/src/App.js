@@ -1,10 +1,12 @@
 import React, { Component } from 'react'
-import { Switch, Route } from 'react-router-dom'
+import { Switch, Route, withRouter } from 'react-router-dom'
+import { compose } from 'recompose'
 import { connect } from 'react-redux'
 
 import { Container, Header, Icon } from 'semantic-ui-react'
 
 import ViewAll from './components/ViewAll'
+import ViewCategory from './components/ViewCategory'
 import NotFound from './components/NotFound'
 import CategoryNav from './components/CategoryNav'
 
@@ -30,14 +32,25 @@ class App extends Component {
         />
         
         <Switch>
-          <Route exact strict path="/" render={() => (
+
+          <Route exact strict path="/" render={props => (
             <ViewAll
+              {...props}            
               // TODO posts={}
             />
           )} />
+
+          <Route exact strict path="/:category" render={props => (
+            <ViewCategory
+              {...props}
+              // TODO posts={}
+            />
+          )} />
+
           <Route path="*" render={() => (
             <NotFound />
           )} />
+
         </Switch>
 
         <Container fluid textAlign="center">
@@ -58,4 +71,7 @@ const mapDispatchToProps = dispatch => ({
   fetchCategories: () => dispatch(fetchCategories())
 })
 
-export default connect(mapStateToProps, mapDispatchToProps)(App)
+export default compose(
+  withRouter,
+  connect(mapStateToProps, mapDispatchToProps),
+)(App)
