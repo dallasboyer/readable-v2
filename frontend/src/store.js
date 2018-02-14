@@ -1,7 +1,7 @@
 import { createStore, applyMiddleware, compose, combineReducers } from 'redux'
 import thunk from 'redux-thunk'
 
-// import { posts } from './reducers/posts'
+import { posts } from './reducers/posts'
 import { categories } from './reducers/categories'
 // import { ui } from './reducers/ui'
 
@@ -15,7 +15,7 @@ import { categories } from './reducers/categories'
 // }
 
 const allReducers = combineReducers({
-  // posts,
+  posts,
   categories,
   // ui,
 })

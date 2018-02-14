@@ -8,7 +8,7 @@ const defaultData = {
     timestamp: 1467166872634,
     title: 'Udacity is the best place to learn React',
     body: 'Everyone says so after all.',
-    author: 'thingtwo',
+    author: 'bob',
     category: 'react',
     voteScore: 6,
     deleted: false,
@@ -19,12 +19,34 @@ const defaultData = {
     timestamp: 1468479767190,
     title: 'Learn Redux in 10 minutes!',
     body: 'Just kidding. It takes more than 10 minutes to learn technology.',
-    author: 'thingone',
+    author: 'mary',
     category: 'redux',
     voteScore: -5,
     deleted: false,
     commentCount: 0
-  }
+  },
+  "2xf09fi2yjabvozdd253nd": {
+    id: '2xf09fi2yjabvozdd253nd',
+    timestamp: 1467168275634,
+    title: 'Love React',
+    body: 'React is the greatest javascript library.',
+    author: 'manly',
+    category: 'react',
+    voteScore: 3,
+    deleted: false,
+    commentCount: 0
+  },
+  "1ug09fi2yjabvo7fk353nd": {
+    id: '1ug09fi2yjabvo7fk353nd',
+    timestamp: 1467185075634,
+    title: 'ES6 is Awesome',
+    body: 'Javascript is even better now with ES6 and ESNext.',
+    author: 'roger',
+    category: 'javascript',
+    voteScore: 4,
+    deleted: false,
+    commentCount: 0
+  },
 }
 
 function getData (token) {

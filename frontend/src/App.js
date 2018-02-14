@@ -10,11 +10,12 @@ import ViewCategory from './components/ViewCategory'
 import NotFound from './components/NotFound'
 import CategoryNav from './components/CategoryNav'
 
+import { fetchPosts } from './actions/posts'
 import { fetchCategories } from './actions/categories'
 
 class App extends Component {
   componentDidMount(){
-    // TODO fetch all posts
+    this.props.fetchPosts()
     this.props.fetchCategories()
   }
   render() {
@@ -36,7 +37,7 @@ class App extends Component {
           <Route exact strict path="/" render={props => (
             <ViewAll
               {...props}            
-              // TODO posts={}
+              posts={this.props.posts}
             />
           )} />
 
@@ -64,11 +65,13 @@ class App extends Component {
 const mapStateToProps = (state, props) => {
   return {
     categories: state.categories.categories,
+    posts: state.posts.posts,
   }
 }
 
 const mapDispatchToProps = dispatch => ({
-  fetchCategories: () => dispatch(fetchCategories())
+  fetchCategories: () => dispatch(fetchCategories()),
+  fetchPosts: () => dispatch(fetchPosts()),
 })
 
 export default compose(
