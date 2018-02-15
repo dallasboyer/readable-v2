@@ -15,6 +15,7 @@ import {
 
 import NewPostModal from './NewPostModal'
 import SortBy from './SortBy'
+import DeletePostModal from './DeletePostModal';
 
 class ViewAll extends Component {
   static propTypes = {
@@ -71,6 +72,12 @@ class ViewAll extends Component {
                 <Card.Description>
                   {item.body}
                 </Card.Description>
+
+                <hr />
+
+                <Card.Meta textAlign="left">
+                  <DeletePostModal post={item} />
+                </Card.Meta>
 
               </Card.Content>
 

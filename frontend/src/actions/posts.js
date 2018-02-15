@@ -1,6 +1,16 @@
 import * as API from '../utils/API'
 import * as Helpers from '../utils/Helpers'
 
+export const DELETE_POST = "DELETE_POST"
+export const deletePost = post => ({
+  type: DELETE_POST,
+  post
+})
+export const removePost = post => dispatch => (
+  API.deletePost(post)
+    .then(post => dispatch(deletePost(post)))
+)
+
 export const CHANGE_SORT_ORDER = "CHANGE_SORT_ORDER"
 export const changeSortOrder = sortBy => ({
   type: CHANGE_SORT_ORDER,

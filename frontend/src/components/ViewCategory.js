@@ -11,13 +11,16 @@ import {
 
 import * as Helpers from '../utils/Helpers'
 import NewPostModal from './NewPostModal'
+import DeletePostModal from './DeletePostModal'
 import SortBy from './SortBy'
 
 class ViewCategory extends Component {
   render() {
 
+    // NOTE filter all posts
     let pagePosts = this.props.posts.filter(post => post.category === this.props.match.params.category)
 
+    // NOTE sort filtered posts
     let pagePostsSorted = pagePosts
     pagePostsSorted.sort(sortBy(this.props.sortBy))
 
@@ -61,6 +64,12 @@ class ViewCategory extends Component {
               <Card.Description>
                 {item.body}
               </Card.Description>
+
+              <hr />
+
+              <Card.Meta textAlign="left">
+                <DeletePostModal post={item} />
+              </Card.Meta>
 
             </Card.Content>
 
