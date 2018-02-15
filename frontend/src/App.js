@@ -28,7 +28,7 @@ class App extends Component {
     this.props.fetchPosts()
     this.props.fetchCategories()
   }
-  
+
   render() {
     return (
       <div>
@@ -57,7 +57,6 @@ class App extends Component {
           <Route exact strict path="/:category" render={props => (
             <ViewCategory
               {...props}
-              // TODO posts={}
             />
           )} />
 

@@ -14,6 +14,7 @@ import {
 } from 'semantic-ui-react'
 
 import NewPostModal from './NewPostModal'
+import SortBy from './SortBy'
 
 class ViewAll extends Component {
   static propTypes = {
@@ -31,23 +32,7 @@ class ViewAll extends Component {
 
         <NewPostModal />
 
-        <label style={customStyles.filter}>
-          <strong>Filter:</strong>
-          <select
-            defaultValue={this.props.sortBy}
-            onChange={(e) => {
-              this.props.onSortChange(e.target.value)
-            }}
-          >
-            <option value="by" disabled>By:</option>
-            <option value="-timestamp">Newest</option>
-            <option value="timestamp">Oldest</option>
-            <option value="-voteScore">Popular</option>
-            <option value="voteScore">Unpopular</option>
-            <option value="category">Category (A-Z)</option>
-            <option value="-category">Category (Z-A)</option>
-          </select>
-        </label>
+        <SortBy />
 
         <Card.Group
           centered
@@ -109,9 +94,6 @@ const customStyles = {
   },
   voter: {
     paddingLeft: '5%',
-  },
-  filter: {
-    paddingLeft: 20,
   },
 }
 
