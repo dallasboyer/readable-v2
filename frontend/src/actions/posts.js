@@ -52,3 +52,24 @@ export const fetchPosts = () => dispatch => {
     .then(posts => dispatch(fetchPostsSuccess(posts)))
     .catch(error => dispatch(fetchPostsFailure(error)))
 }
+
+export const VOTE_REQUEST = "VOTE_REQUEST"
+export const VOTE_SUCCESS = "VOTE_SUCCESS"
+export const VOTE_FAILURE = "VOTE_FAILURE"
+export const voteRequest = () => ({
+  type: VOTE_REQUEST
+})
+export const voteSuccess = post => ({
+  type: VOTE_SUCCESS,
+  post
+})
+export const voteFailure = error => ({
+  type: VOTE_FAILURE,
+  error
+})
+export const vote = (itemType, id, option) => dispatch => {
+  dispatch(voteRequest())
+  return API.vote(itemType, id, option)
+    .then(post => dispatch(voteSuccess(post)))
+    .catch(error => dispatch(voteFailure()))
+}

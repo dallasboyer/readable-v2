@@ -5,6 +5,9 @@ import {
   FETCH_POSTS_REQUEST,
   FETCH_POSTS_SUCCESS,
   FETCH_POSTS_FAILURE,
+  VOTE_REQUEST,
+  VOTE_SUCCESS,
+  VOTE_FAILURE,
 } from '../actions/posts'
 
 const initState = {
@@ -12,6 +15,7 @@ const initState = {
   isFetching: false,
   error: null,
   sortBy: "-timestamp",
+  isVoting: false,
 }
 
 export const posts = (state = initState, action) => {
@@ -55,7 +59,24 @@ export const posts = (state = initState, action) => {
         ...state,
         isFetching: false,
         error,
-      }   
+      }
+    case VOTE_REQUEST:
+      return {
+        ...state,
+        isVoting: true,
+      }
+    case VOTE_SUCCESS:
+      return {
+        ...state,
+        isVoting: false,
+        posts: state.posts.filter(p => p.id !== action.post.id).concat(action.post)
+      }
+    case VOTE_FAILURE:
+      return {
+        ...state,
+        isVoting: false,
+        error
+      }      
     default:
       return state
   }

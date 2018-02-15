@@ -15,7 +15,8 @@ import {
 
 import NewPostModal from './NewPostModal'
 import SortBy from './SortBy'
-import DeletePostModal from './DeletePostModal';
+import DeletePostModal from './DeletePostModal'
+import Voter from './Voter'
 
 class ViewAll extends Component {
   static propTypes = {
@@ -62,11 +63,11 @@ class ViewAll extends Component {
                     {item.commentCount}
                   </span>
 
-                  <span style={customStyles.voter}>
-                    <Icon name='thumbs down' />
-                    <span style={customStyles.score}>{item.voteScore}</span>
-                    <Icon name='thumbs up' />
-                  </span>
+                  <Voter
+                    type="post" // post/comment
+                    item={item}
+                  />
+
                 </Card.Meta>
 
                 <Card.Description>
@@ -94,12 +95,6 @@ const customStyles = {
   comment: {
     paddingLeft: 10,
     paddingRight: 5,
-  },
-  score: {
-    padding: '0 10'
-  },
-  voter: {
-    paddingLeft: '5%',
   },
 }
 
