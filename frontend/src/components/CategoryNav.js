@@ -1,8 +1,14 @@
 import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 import { Link } from 'react-router-dom'
+
 import { Menu } from 'semantic-ui-react'
 
 class CategoryNav extends Component {
+  static propTypes = {
+    categories: PropTypes.array.isRequired,
+  }
+
   state = { activeItem: 'home' }
 
   handleItemClick = (e, { name }) => this.setState({ activeItem: name })

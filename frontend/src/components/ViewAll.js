@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 import { Link } from 'react-router-dom'
 
 import * as Helpers from '../utils/helpers'
@@ -10,9 +11,13 @@ import {
   Label,
 } from 'semantic-ui-react'
 
-import NewPostModal from './NewPostModal';
+import NewPostModal from './NewPostModal'
 
 class ViewAll extends Component {
+  static propTypes = {
+    posts: PropTypes.array.isRequired,
+  }
+
   render() {
     return (
       <Container>

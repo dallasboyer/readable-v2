@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 import { Switch, Route, withRouter } from 'react-router-dom'
 import { compose } from 'recompose'
 import { connect } from 'react-redux'
@@ -14,6 +15,13 @@ import { fetchPosts } from './actions/posts'
 import { fetchCategories } from './actions/categories'
 
 class App extends Component {
+  static propTypes = {
+    posts: PropTypes.array.isRequired,
+    categories: PropTypes.array.isRequired,
+    fetchPosts: PropTypes.func.isRequired,
+    fetchCategories: PropTypes.func.isRequired,
+  }
+
   componentDidMount(){
     this.props.fetchPosts()
     this.props.fetchCategories()
