@@ -10,11 +10,15 @@ import {
   Label,
 } from 'semantic-ui-react'
 
+import NewPostModal from './NewPostModal';
+
 class ViewAll extends Component {
   render() {
     return (
       <Container>
 
+        <NewPostModal />
+        
         <Card.Group centered>
 
           {this.props.posts.map((item, index) => (
