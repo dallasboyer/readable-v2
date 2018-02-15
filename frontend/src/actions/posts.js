@@ -1,5 +1,5 @@
 import * as API from '../utils/API'
-import * as Helpers from '../utils/helpers'
+import * as Helpers from '../utils/Helpers'
 
 export const ADD_POST = "ADD_POST"
 export const addPost = post => ({

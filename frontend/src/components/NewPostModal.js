@@ -12,7 +12,7 @@ import {
   Form
 } from 'semantic-ui-react'
 
-import * as Helpers from '../utils/helpers'
+import * as Helpers from '../utils/Helpers'
 
 class NewPostModal extends Component {
   static propTypes = {
@@ -77,6 +77,7 @@ class NewPostModal extends Component {
         size='small'
         closeIcon
       >
+
         <Header icon='comment' content='What would you like to say:' />
 
         <Modal.Content>
