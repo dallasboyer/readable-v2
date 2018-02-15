@@ -18,8 +18,11 @@ class ViewAll extends Component {
       <Container>
 
         <NewPostModal />
-        
-        <Card.Group centered>
+
+        <Card.Group
+          centered
+          itemsPerRow={1}
+        >
 
           {this.props.posts.map((item, index) => (
             <Card as='article' key={index}>
