@@ -1,4 +1,5 @@
 import {
+  CHANGE_SORT_ORDER,
   ADD_POST,
   FETCH_POSTS_REQUEST,
   FETCH_POSTS_SUCCESS,
@@ -9,6 +10,7 @@ const initState = {
   posts: [],
   isFetching: false,
   error: null,
+  sortBy: "-timestamp",
 }
 
 export const posts = (state = initState, action) => {
@@ -17,9 +19,15 @@ export const posts = (state = initState, action) => {
     post,
     posts,
     error,
+    sortBy,
   } = action
 
   switch (action.type) {
+    case CHANGE_SORT_ORDER:
+      return {
+        ...state,
+        sortBy
+      }
     case ADD_POST:
       return {
         ...state,

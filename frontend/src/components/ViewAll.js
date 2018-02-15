@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { Link } from 'react-router-dom'
 
+import sortBy from 'sort-by'
+
 import * as Helpers from '../utils/Helpers'
 
 import {
@@ -16,20 +18,43 @@ import NewPostModal from './NewPostModal'
 class ViewAll extends Component {
   static propTypes = {
     posts: PropTypes.array.isRequired,
+    sortBy: PropTypes.string.isRequired,
+    onSortChange: PropTypes.func.isRequired,
   }
 
   render() {
+    let inputPosts = this.props.posts
+    inputPosts.sort(sortBy(this.props.sortBy))
+
     return (
       <Container>
 
         <NewPostModal />
+
+        <label style={customStyles.filter}>
+          <strong>Filter:</strong>
+          <select
+            defaultValue={this.props.sortBy}
+            onChange={(e) => {
+              this.props.onSortChange(e.target.value)
+            }}
+          >
+            <option value="by" disabled>By:</option>
+            <option value="-timestamp">Newest</option>
+            <option value="timestamp">Oldest</option>
+            <option value="-voteScore">Popular</option>
+            <option value="voteScore">Unpopular</option>
+            <option value="category">Category (A-Z)</option>
+            <option value="-category">Category (Z-A)</option>
+          </select>
+        </label>
 
         <Card.Group
           centered
           itemsPerRow={1}
         >
 
-          {this.props.posts.map((item, index) => (
+          {inputPosts.map((item, index) => (
             <Card as='article' key={index}>
 
               <Card.Content as='section'>
@@ -84,6 +109,9 @@ const customStyles = {
   },
   voter: {
     paddingLeft: '5%',
+  },
+  filter: {
+    paddingLeft: 20,
   },
 }
 

@@ -11,7 +11,7 @@ import ViewCategory from './components/ViewCategory'
 import NotFound from './components/NotFound'
 import CategoryNav from './components/CategoryNav'
 
-import { fetchPosts } from './actions/posts'
+import { fetchPosts, changeSortOrder } from './actions/posts'
 import { fetchCategories } from './actions/categories'
 
 class App extends Component {
@@ -20,12 +20,15 @@ class App extends Component {
     categories: PropTypes.array.isRequired,
     fetchPosts: PropTypes.func.isRequired,
     fetchCategories: PropTypes.func.isRequired,
+    changeSortOrder: PropTypes.func.isRequired,
+    sortBy: PropTypes.string.isRequired,
   }
 
   componentDidMount(){
     this.props.fetchPosts()
     this.props.fetchCategories()
   }
+  
   render() {
     return (
       <div>
@@ -46,6 +49,8 @@ class App extends Component {
             <ViewAll
               {...props}            
               posts={this.props.posts}
+              sortBy={this.props.sortBy}
+              onSortChange={this.props.changeSortOrder}
             />
           )} />
 
@@ -74,12 +79,14 @@ const mapStateToProps = (state, props) => {
   return {
     categories: state.categories.categories,
     posts: state.posts.posts,
+    sortBy: state.posts.sortBy,
   }
 }
 
 const mapDispatchToProps = dispatch => ({
   fetchCategories: () => dispatch(fetchCategories()),
   fetchPosts: () => dispatch(fetchPosts()),
+  changeSortOrder: sortBy => dispatch(changeSortOrder(sortBy)),
 })
 
 export default compose(
