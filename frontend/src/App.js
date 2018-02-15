@@ -8,6 +8,7 @@ import { Container, Header, Icon } from 'semantic-ui-react'
 
 import ViewAll from './components/ViewAll'
 import ViewCategory from './components/ViewCategory'
+import ViewPost from './components/ViewPost'
 import NotFound from './components/NotFound'
 import CategoryNav from './components/CategoryNav'
 
@@ -62,6 +63,13 @@ class App extends Component {
               {...props}
               posts={this.props.posts}
               sortBy={this.props.sortBy}
+            />
+          )} />
+
+          <Route exact strict path="/:category/:id" render={props => (
+            <ViewPost
+              {...props}
+              posts={this.props.posts}
             />
           )} />
 

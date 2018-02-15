@@ -59,7 +59,7 @@ class ViewCategory extends Component {
                   type="post" // post/comment
                   item={item}
                 />
-                
+
               </Card.Meta>
 
               <Card.Description>
@@ -69,7 +69,7 @@ class ViewCategory extends Component {
               <hr />
 
               <Card.Meta textAlign="left">
-                <DeletePostModal post={item} />
+                <DeletePostModal {...this.props} post={item} />
               </Card.Meta>
 
             </Card.Content>

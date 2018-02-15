@@ -77,7 +77,7 @@ class ViewAll extends Component {
                 <hr />
 
                 <Card.Meta textAlign="left">
-                  <DeletePostModal post={item} />
+                  <DeletePostModal {...this.props} post={item} />
                 </Card.Meta>
 
               </Card.Content>

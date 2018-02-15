@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import { Redirect } from 'react-router'
 
 import {
   Button,
@@ -18,8 +19,16 @@ class DeletePostModal extends Component {
   show = () => this.setState({ open: true })
   
   handleConfirm = () => {
-    this.props.removePost(this.props.post)
-    this.setState({ open: false })
+
+    if(this.props.match.path === "/:category/:id"){
+      this.props.removePost(this.props.post)
+      this.setState({ open: false })
+      this.props.history.goBack()
+    } else {
+      this.props.removePost(this.props.post)
+      this.setState({ open: false })
+    }
+
   }
 
   handleCancel = () => this.setState({ open: false })
