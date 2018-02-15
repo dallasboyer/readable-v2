@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
-import PropTypes from 'prop-types';
+import PropTypes from 'prop-types'
+
 import { connect } from 'react-redux'
+import { newPost } from '../actions/posts'
 
 import {
   Button,
@@ -15,6 +17,7 @@ import * as Helpers from '../utils/helpers'
 class NewPostModal extends Component {
   static propTypes = {
     categories: PropTypes.array.isRequired,
+    newPost: PropTypes.func.isRequired,
   }
 
   state = {
@@ -49,6 +52,7 @@ class NewPostModal extends Component {
 
     console.log("Submitted", post)
 
+    this.props.newPost(post)
     this.clearForm()
     this.handleClose()
   }
@@ -132,4 +136,8 @@ const mapStateToProps = (state, props) => {
   }
 }
 
-export default connect(mapStateToProps, null)(NewPostModal)
+const mapDispatchToProps = dispatch => ({
+  newPost: post => dispatch(newPost(post))
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(NewPostModal)
