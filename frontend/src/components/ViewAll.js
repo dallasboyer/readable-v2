@@ -20,7 +20,6 @@ class ViewAll extends Component {
   static propTypes = {
     posts: PropTypes.array.isRequired,
     sortBy: PropTypes.string.isRequired,
-    onSortChange: PropTypes.func.isRequired,
   }
 
   render() {

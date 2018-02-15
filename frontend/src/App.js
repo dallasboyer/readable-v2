@@ -11,7 +11,11 @@ import ViewCategory from './components/ViewCategory'
 import NotFound from './components/NotFound'
 import CategoryNav from './components/CategoryNav'
 
-import { fetchPosts, changeSortOrder } from './actions/posts'
+import {
+  fetchPosts,
+  changeSortOrder,
+} from './actions/posts'
+
 import { fetchCategories } from './actions/categories'
 
 class App extends Component {
@@ -50,13 +54,14 @@ class App extends Component {
               {...props}            
               posts={this.props.posts}
               sortBy={this.props.sortBy}
-              onSortChange={this.props.changeSortOrder}
             />
           )} />
 
           <Route exact strict path="/:category" render={props => (
             <ViewCategory
               {...props}
+              posts={this.props.posts}
+              sortBy={this.props.sortBy}
             />
           )} />
 

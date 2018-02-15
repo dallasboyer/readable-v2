@@ -49,7 +49,7 @@ export const posts = (state = initState, action) => {
         ...state,
         isFetching: false,
         error,
-      }
+      }   
     default:
       return state
   }
