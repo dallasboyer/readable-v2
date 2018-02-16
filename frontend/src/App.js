@@ -70,6 +70,7 @@ class App extends Component {
             <ViewPost
               {...props}
               posts={this.props.posts}
+              comments={this.props.comments}
             />
           )} />
 
@@ -91,6 +92,7 @@ const mapStateToProps = (state, props) => {
   return {
     categories: state.categories.categories,
     posts: state.posts.posts,
+    comments: state.comments.comments,
     sortBy: state.posts.sortBy,
   }
 }

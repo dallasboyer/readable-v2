@@ -7,26 +7,20 @@ import {
 } from 'semantic-ui-react'
 
 import {
-  removePost,
-} from '../actions/posts'
+  removeComment,
+} from '../actions/comments'
 
-class DeletePostModal extends Component {
+class DeleteCommentModal extends Component {
   state = {
     open: false,
   }
 
   show = () => this.setState({ open: true })
-  
+
   handleConfirm = () => {
 
-    if(this.props.match.path === "/:category/:id"){
-      this.props.removePost(this.props.post)
-      this.setState({ open: false })
-      this.props.history.goBack()
-    } else {
-      this.props.removePost(this.props.post)
-      this.setState({ open: false })
-    }
+    this.props.removeComment(this.props.comment.id)
+    this.setState({ open: false })
 
   }
 
@@ -41,7 +35,7 @@ class DeletePostModal extends Component {
           // content="delete"
           circular
           icon="trash"
-          negative
+          positive
           size="mini"
           onClick={this.show}
         />
@@ -56,7 +50,7 @@ class DeletePostModal extends Component {
 }
 
 const mapDispatchToProps = dispatch => ({
-  removePost: post => dispatch(removePost(post)),
+  removeComment: id => dispatch(removeComment(id)),
 })
 
-export default connect(null, mapDispatchToProps)(DeletePostModal)
+export default connect(null, mapDispatchToProps)(DeleteCommentModal)

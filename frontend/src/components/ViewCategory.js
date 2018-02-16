@@ -7,6 +7,7 @@ import {
   Card,
   Icon,
   Label,
+  Divider,
 } from 'semantic-ui-react'
 
 import * as Helpers from '../utils/Helpers'
@@ -66,7 +67,7 @@ class ViewCategory extends Component {
                 {item.body}
               </Card.Description>
 
-              <hr />
+              <Divider />
 
               <Card.Meta textAlign="left">
                 <DeletePostModal {...this.props} post={item} />
@@ -87,8 +88,10 @@ class ViewCategory extends Component {
 
     return (
       <Container>
+        
         <NewPostModal />
         <SortBy />
+        <Divider />
         
         {renderPosts}
 

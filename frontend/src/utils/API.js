@@ -17,6 +17,19 @@ export const fetchPosts = () =>
     fetch(`${api_baseURL}/posts`, { headers })
         .then(res => res.json())
 
+export const fetchComments = (id) =>
+    fetch(`${api_baseURL}/posts/${id}/comments`, { headers })
+        .then(res => res.json())
+
+export const deleteComment = id =>
+    fetch(`${api_baseURL}/comments/${id}`, {
+        method: 'DELETE',
+        headers: {
+            ...headers,
+            'Content-Type': 'application/json'
+        },
+    }).then(res => res.json())        
+
 export const fetchCategoryPosts = category =>
     fetch(`${api_baseURL}/${category}/posts`, { headers })
         .then(res => res.json())

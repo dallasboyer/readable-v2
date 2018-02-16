@@ -11,6 +11,7 @@ import {
   Card,
   Icon,
   Label,
+  Divider,
 } from 'semantic-ui-react'
 
 import NewPostModal from './NewPostModal'
@@ -34,6 +35,8 @@ class ViewAll extends Component {
         <NewPostModal />
 
         <SortBy />
+
+        <Divider />
 
         <Card.Group
           centered
@@ -74,7 +77,7 @@ class ViewAll extends Component {
                   {item.body}
                 </Card.Description>
 
-                <hr />
+                <Divider />
 
                 <Card.Meta textAlign="left">
                   <DeletePostModal {...this.props} post={item} />

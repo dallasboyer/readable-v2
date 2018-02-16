@@ -2,6 +2,7 @@ import { createStore, applyMiddleware, compose, combineReducers } from 'redux'
 import thunk from 'redux-thunk'
 
 import { posts } from './reducers/posts'
+import { comments } from './reducers/comments'
 import { categories } from './reducers/categories'
 // import { ui } from './reducers/ui'
 
@@ -18,6 +19,7 @@ const allReducers = combineReducers({
   posts,
   categories,
   // ui,
+  comments,
 })
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
