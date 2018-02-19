@@ -17,6 +17,7 @@ import {
 import NewPostModal from './NewPostModal'
 import SortBy from './SortBy'
 import DeletePostModal from './DeletePostModal'
+import EditPostModal from './EditPostModal'
 import Voter from './Voter'
 
 class ViewAll extends Component {
@@ -85,6 +86,7 @@ class ViewAll extends Component {
 
                 <Card.Meta textAlign="left">
                   <DeletePostModal {...this.props} post={item} />
+                  <EditPostModal {...this.props} post={item} />
                 </Card.Meta>
 
               </Card.Content>

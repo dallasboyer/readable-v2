@@ -2,6 +2,7 @@ import {
   CHANGE_SORT_ORDER,
   ADD_POST,
   DELETE_POST,
+  UPDATE_POST,
   FETCH_POSTS_REQUEST,
   FETCH_POSTS_SUCCESS,
   FETCH_POSTS_FAILURE,
@@ -50,6 +51,12 @@ export const posts = (state = initState, action) => {
       return {
         ...state,
         posts: state.posts.concat(post)
+      }
+    case UPDATE_POST:
+      let updatedPost = action.post
+      return {
+        ...state,
+        posts: state.posts.filter(x => x.id !== action.post.id).concat(updatedPost)
       }
     case DELETE_POST:
       return {

@@ -13,6 +13,7 @@ import {
 import * as Helpers from '../utils/Helpers'
 import NewPostModal from './NewPostModal'
 import DeletePostModal from './DeletePostModal'
+import EditPostModal from './EditPostModal'
 import Voter from './Voter'
 import SortBy from './SortBy'
 
@@ -71,6 +72,7 @@ class ViewCategory extends Component {
 
               <Card.Meta textAlign="left">
                 <DeletePostModal {...this.props} post={item} />
+                <EditPostModal {...this.props} post={item} />
               </Card.Meta>
 
             </Card.Content>

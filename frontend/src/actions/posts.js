@@ -36,6 +36,16 @@ export const newPost = post => dispatch => {
     .then(post => dispatch(addPost(post)))
 }
 
+export const UPDATE_POST = "UPDATE_POST"
+export const updatePost = post => ({
+  type: UPDATE_POST,
+  post
+})
+export const editPost = post => dispatch => {
+  return API.editPost(post)
+    .then(post => dispatch(updatePost(post)))
+}
+
 export const FETCH_POSTS_REQUEST = "FETCH_POSTS_REQUEST"
 export const FETCH_POSTS_SUCCESS = "FETCH_POSTS_SUCCESS"
 export const FETCH_POSTS_FAILURE = "FETCH_POSTS_FAILURE"
