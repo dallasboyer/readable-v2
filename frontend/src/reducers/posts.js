@@ -12,6 +12,7 @@ import {
 
 import {
   ADD_COMMENT,
+  DELETE_COMMENT,
 } from '../actions/comments'
 
 const initState = {
@@ -35,7 +36,7 @@ export const posts = (state = initState, action) => {
   switch (action.type) {
     case ADD_COMMENT:
       let newPost = state.posts.filter(p => p.id === comment.parentId).pop()
-      newPost.commentCount = newPost.commentCount + 1
+      newPost.commentCount += 1
       return {
         ...state,
         posts: state.posts.filter(p => p.id !== comment.parentId).concat(newPost)
@@ -54,6 +55,13 @@ export const posts = (state = initState, action) => {
       return {
         ...state,
         posts: state.posts.filter(post => action.post.id !== post.id)
+      }
+    case DELETE_COMMENT:
+      let commentRemovedFromPost = state.posts.filter(p => p.id === comment.parentId).pop()
+      commentRemovedFromPost.commentCount -= 1
+      return {
+        ...state,
+        posts: state.posts.filter(p => p.id !== comment.parentId).concat(commentRemovedFromPost)
       }
     case FETCH_POSTS_REQUEST:
       return {
