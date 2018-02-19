@@ -8,6 +8,7 @@ import {
   Icon,
   Label,
   Divider,
+  Button,
 } from 'semantic-ui-react'
 
 import * as Helpers from '../utils/Helpers'
@@ -71,8 +72,11 @@ class ViewCategory extends Component {
               <Divider />
 
               <Card.Meta textAlign="left">
-                <DeletePostModal {...this.props} post={item} />
-                <EditPostModal {...this.props} post={item} />
+                <Button.Group>
+                  <DeletePostModal {...this.props} post={item} />
+                  <Button.Or />
+                  <EditPostModal {...this.props} post={item} />
+                </Button.Group>
               </Card.Meta>
 
             </Card.Content>

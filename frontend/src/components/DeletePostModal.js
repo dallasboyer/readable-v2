@@ -38,11 +38,9 @@ class DeletePostModal extends Component {
     return (
       <div>
         <Button
-          // content="delete"
-          circular
           icon="trash"
           negative
-          size="mini"
+          size='small'
           onClick={this.show}
         />
         <Confirm

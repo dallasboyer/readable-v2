@@ -14,8 +14,6 @@ import {
   Form
 } from 'semantic-ui-react'
 
-import * as Helpers from '../utils/Helpers'
-
 class EditPostModal extends Component {
   constructor(props){
     super(props)
@@ -73,6 +71,7 @@ class EditPostModal extends Component {
           <Button
             onClick={this.handleOpen}
             icon="edit"
+            positive
             circular
           />
         }
