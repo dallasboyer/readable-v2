@@ -24,6 +24,7 @@ class AddCommentForm extends Component {
             name="author"
             placeholder='Author'
             type="text"
+            value={this.state.author}
             onChange={this.handleInputChange}
             required
           />
@@ -33,6 +34,7 @@ class AddCommentForm extends Component {
             name="body"
             placeholder='Your message'
             type="text"
+            value={this.state.body}
             onChange={this.handleInputChange}
             required
           />
