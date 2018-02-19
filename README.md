@@ -15,4 +15,4 @@ This project was bootstrapped with Create React App.
     cd frontend && npm install && npm start
 ```
 
-App should now be running at `localhost:3001`
+App should now be running at `localhost:3000`
