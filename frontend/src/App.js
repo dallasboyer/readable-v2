@@ -4,7 +4,11 @@ import { Switch, Route, withRouter } from 'react-router-dom'
 import { compose } from 'recompose'
 import { connect } from 'react-redux'
 
-import { Container, Header, Icon } from 'semantic-ui-react'
+import {
+  Container,
+  Header,
+  Icon
+} from 'semantic-ui-react'
 
 import ViewAll from './components/ViewAll'
 import ViewCategory from './components/ViewCategory'
@@ -36,7 +40,9 @@ class App extends Component {
 
   render() {
     return (
-      <div>
+      <div
+        style={customStyles.app}
+      >
         <Header as='h2' icon textAlign='center'>
           <Icon name='talk outline' />
           <Header.Content>
@@ -86,6 +92,12 @@ class App extends Component {
       </div>
     )
   }
+}
+
+const customStyles = {
+  app: {
+    backgroundColor: "#333",
+  },
 }
 
 const mapStateToProps = (state, props) => {

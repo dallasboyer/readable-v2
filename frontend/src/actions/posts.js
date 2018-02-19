@@ -1,6 +1,10 @@
 import * as API from '../utils/API'
 import * as Helpers from '../utils/Helpers'
 
+import {
+  voteCommentSuccess,
+} from './comments'
+
 export const DELETE_POST = "DELETE_POST"
 export const deletePost = post => ({
   type: DELETE_POST,
@@ -70,6 +74,10 @@ export const voteFailure = error => ({
 export const vote = (itemType, id, option) => dispatch => {
   dispatch(voteRequest())
   return API.vote(itemType, id, option)
-    .then(post => dispatch(voteSuccess(post)))
+    .then((response) => {
+      itemType === "post"
+        ? dispatch(voteSuccess(response))
+        : dispatch(voteCommentSuccess(response))
+    })
     .catch(error => dispatch(voteFailure()))
 }

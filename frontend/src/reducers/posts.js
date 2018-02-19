@@ -10,6 +10,10 @@ import {
   VOTE_FAILURE,
 } from '../actions/posts'
 
+import {
+  ADD_COMMENT,
+} from '../actions/comments'
+
 const initState = {
   posts: [],
   isFetching: false,
@@ -25,9 +29,17 @@ export const posts = (state = initState, action) => {
     posts,
     error,
     sortBy,
+    comment,
   } = action
 
   switch (action.type) {
+    case ADD_COMMENT:
+      let newPost = state.posts.filter(p => p.id === comment.parentId).pop()
+      newPost.commentCount = newPost.commentCount + 1
+      return {
+        ...state,
+        posts: state.posts.filter(p => p.id !== comment.parentId).concat(newPost)
+      }
     case CHANGE_SORT_ORDER:
       return {
         ...state,

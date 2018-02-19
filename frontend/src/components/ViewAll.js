@@ -44,7 +44,11 @@ class ViewAll extends Component {
         >
 
           {inputPosts.map((item, index) => (
-            <Card as='article' key={index}>
+            <Card
+              as='article' 
+              key={index}
+              style={customStyles.root}
+            >
 
               <Card.Content as='section'>
 
@@ -89,12 +93,16 @@ class ViewAll extends Component {
           ))}
 
         </Card.Group>
+        
       </Container>
     )
   }
 }
 
 const customStyles = {
+  root: {
+    backgroundColor: "#444 !important"
+  },
   comment: {
     paddingLeft: 10,
     paddingRight: 5,

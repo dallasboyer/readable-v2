@@ -19,6 +19,7 @@ import * as Helpers from '../utils/Helpers'
 import DeletePostModal from './DeletePostModal'
 import DeleteCommentModal from './DeleteCommentModal'
 import Voter from './Voter'
+import AddCommentForm from './AddCommentForm'
 
 class ViewPost extends Component {
   componentDidMount(){
@@ -91,7 +92,10 @@ class ViewPost extends Component {
 
     let renderComments = this.props.comments.length !== 0
       ?
-        (<Card.Group centered>
+      (<Card.Group
+        centered
+        itemsPerRow={1}
+      >
           {this.props.comments.map(comment => (
             <Card
               as='article'
@@ -131,7 +135,7 @@ class ViewPost extends Component {
 
             </Card>
           ))}
-        </Card.Group >)
+        </Card.Group>)
       :
         (<h3 style={{ textAlign: "center" }}>No Comments Available</h3>)
 
@@ -149,6 +153,7 @@ class ViewPost extends Component {
 
         {renderPost}
         {renderCommentCounter}
+        <AddCommentForm postId={this.props.match.params.id} />
         {renderComments}
         
       </Container>
@@ -167,6 +172,7 @@ ViewPost.propTypes = {
   posts: PropTypes.array.isRequired,
   comments: PropTypes.array.isRequired,
   fetchComments: PropTypes.func.isRequired,
+  resetComments: PropTypes.func.isRequired,
 }
 
 const mapDispatchToProps = dispatch => ({

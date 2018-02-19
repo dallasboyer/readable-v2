@@ -4,6 +4,8 @@ import {
   FETCH_COMMENTS_FAILURE,
   DELETE_COMMENT,
   RESET_COMMENTS,
+  ADD_COMMENT,
+  VOTE_COMMENT_SUCCESS,
 } from '../actions/comments'
 
 const initState = {
@@ -31,6 +33,11 @@ export const comments = (state = initState, action) => {
         ...state,
         comments: state.comments.filter(c => c.id !== comment.id)
       }
+    case ADD_COMMENT:
+      return {
+        ...state,
+        comments: state.comments.concat(comment)
+      }
     case FETCH_COMMENTS_REQUEST:
       return {
         ...state,
@@ -47,6 +54,12 @@ export const comments = (state = initState, action) => {
         ...state,
         isFetching: false,
         error,
+      }
+    case VOTE_COMMENT_SUCCESS:
+      return {
+        ...state,
+        isVoting: false,
+        comments: state.comments.filter(c => c.id !== action.comment.id).concat(action.comment)
       }
     default:
       return state
