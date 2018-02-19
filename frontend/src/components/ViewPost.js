@@ -8,6 +8,7 @@ import {
   Card,
   Icon,
   Label,
+  Button,
 } from 'semantic-ui-react'
 
 import {
@@ -18,6 +19,7 @@ import {
 import * as Helpers from '../utils/Helpers'
 import DeletePostModal from './DeletePostModal'
 import DeleteCommentModal from './DeleteCommentModal'
+import EditCommentModal from './EditCommentModal'
 import Voter from './Voter'
 import AddCommentForm from './AddCommentForm'
 
@@ -120,7 +122,11 @@ class ViewPost extends Component {
                 </Card.Meta>
 
                 <Card.Meta textAlign="left">
-                  <DeleteCommentModal {...this.props} comment={comment} />
+                  <Button.Group>
+                    <DeleteCommentModal {...this.props} comment={comment} />
+                    <Button.Or />
+                    <EditCommentModal {...this.props} comment={comment} />
+                  </Button.Group>
                 </Card.Meta>
 
               </Card.Content>

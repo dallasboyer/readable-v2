@@ -73,6 +73,16 @@ export const editPost = post =>
         body: JSON.stringify({ ...post })
     }).then(res => res.json())
 
+export const editComment = comment =>
+    fetch(`${api_baseURL}/comments/${comment.id}`, {
+        method: 'PUT',
+        headers: {
+            ...headers,
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ ...comment })
+    }).then(res => res.json())
+
 export const fetchCategories = () =>
     fetch(`${api_baseURL}/categories`, { headers })
         .then(res => res.json())

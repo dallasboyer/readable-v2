@@ -5,6 +5,7 @@ import {
   DELETE_COMMENT,
   RESET_COMMENTS,
   ADD_COMMENT,
+  UPDATE_COMMENT,
   VOTE_COMMENT_SUCCESS,
 } from '../actions/comments'
 
@@ -38,6 +39,12 @@ export const comments = (state = initState, action) => {
         ...state,
         comments: state.comments.concat(comment)
       }
+    case UPDATE_COMMENT:
+      let updatedComment = action.comment
+      return {
+        ...state,
+        comments: state.comments.filter(x => x.id !== action.comment.id).concat(updatedComment)
+      }      
     case FETCH_COMMENTS_REQUEST:
       return {
         ...state,

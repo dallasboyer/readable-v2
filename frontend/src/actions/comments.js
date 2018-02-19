@@ -31,6 +31,20 @@ export const newComment = comment => dispatch => {
     .then(comment => dispatch(addComment(comment)))
 }
 
+export const UPDATE_COMMENT = "UPDATE_COMMENT"
+export const updateComment = comment => ({
+  type: UPDATE_COMMENT,
+  comment
+})
+export const editComment = comment => dispatch => {
+  comment = {
+    ...comment,
+    timestamp: Date.now()
+  }
+  return API.editComment(comment)
+    .then(comment => dispatch(updateComment(comment)))
+}
+
 export const FETCH_COMMENTS_REQUEST = "FETCH_COMMENTS_REQUEST"
 export const FETCH_COMMENTS_SUCCESS = "FETCH_COMMENTS_SUCCESS"
 export const FETCH_COMMENTS_FAILURE = "FETCH_COMMENTS_FAILURE"
