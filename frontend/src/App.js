@@ -7,7 +7,8 @@ import { connect } from 'react-redux'
 import {
   Container,
   Header,
-  Icon
+  Icon,
+  Button
 } from 'semantic-ui-react'
 
 import ViewAll from './components/ViewAll'
@@ -86,8 +87,16 @@ class App extends Component {
 
         </Switch>
 
-        <Container fluid textAlign="center">
-          Made by Dallas
+        <Container
+          fluid
+          textAlign="center"
+          style={customStyles.footer}
+        >
+          <Button
+            href="https://github.com/dallasboyer/readable-v2"
+            icon="github"
+            content="Made By Dallas"
+          />
         </Container>
       </div>
     )
@@ -96,8 +105,11 @@ class App extends Component {
 
 const customStyles = {
   app: {
-    backgroundColor: "#333",
+    backgroundColor: "white",
   },
+  footer: {
+    padding: "50px 0"
+  }
 }
 
 const mapStateToProps = (state, props) => {
