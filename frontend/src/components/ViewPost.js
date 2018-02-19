@@ -101,6 +101,12 @@ class ViewPost extends Component {
                   {`${Helpers.capitalize(comment.author)} says:`}
                 </Card.Header>
 
+                <Card.Description>
+                  {comment.body}
+                </Card.Description>
+
+                <hr />
+
                 <Card.Meta>
                   <span>
                     {Helpers.calculateDate(comment.timestamp)}
@@ -112,12 +118,6 @@ class ViewPost extends Component {
                   />
 
                 </Card.Meta>
-
-                <Card.Description>
-                  {comment.body}
-                </Card.Description>
-
-                <hr />
 
                 <Card.Meta textAlign="left">
                   <DeleteCommentModal {...this.props} comment={comment} />
