@@ -29,15 +29,7 @@ class ViewPost extends Component {
   componentWillUnmount() {
     this.props.resetComments()
   }
-
-  // componentWillReceiveProps(nextProps){
-  //   if(nextProps.posts !== this.props.posts)
-
-  //     if (nextProps.match.params.category !== this.props.match.params.category) {
-  //       this.props.fetchCategoryPosts(nextProps.match.params.category)
-  //     }
-  // }
-
+  
   render() {
     let currentPost = this.props.posts.filter(post => post.id === this.props.match.params.id).pop()
 

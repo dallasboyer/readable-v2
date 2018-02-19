@@ -32,10 +32,9 @@ class DeleteCommentModal extends Component {
     return (
       <div>
         <Button
-          // content="delete"
           circular
           icon="trash"
-          positive
+          negative
           size="mini"
           onClick={this.show}
         />
