@@ -85,7 +85,7 @@ class ViewPost extends Component {
 
       </Card>)
       :
-        (<div>No Post</div>)
+        (<h1 style={{ textAlign: "center", padding: "50px 0 30px 0" }}>No Post</h1>)
 
 
 
@@ -140,15 +140,15 @@ class ViewPost extends Component {
           ))}
         </Card.Group>)
       :
-        (<h3 style={{ textAlign: "center" }}>No Comments Available</h3>)
+        (<h1 style={{ textAlign: "center", padding: "50px 0 30px 0" }}>No Comments Available</h1>)
 
   
     
     let renderCommentCounter = currentPost
       ?
-        (<h1 style={{ textAlign: "center" }}>{`${currentPost.commentCount} Comments`}</h1>)
+        (<h1 style={{ textAlign: "center", padding: "50px 0 30px 0" }}>{`${currentPost.commentCount} Comments`}</h1>)
       :
-        (<h1 style={{ textAlign: "center" }}>No Comments</h1>)
+        (<h1 style={{ textAlign: "center", padding: "50px 0 30px 0" }}>No Comments</h1>)
           
     return (
       <Container>
