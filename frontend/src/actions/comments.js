@@ -1,7 +1,16 @@
 import * as API from '../utils/API'
 import * as Helpers from '../utils/Helpers'
+import {
+  DELETE_COMMENT,
+  RESET_COMMENTS,
+  ADD_COMMENT,
+  UPDATE_COMMENT,
+  FETCH_COMMENTS_REQUEST,
+  FETCH_COMMENTS_SUCCESS,
+  FETCH_COMMENTS_FAILURE,
+  VOTE_COMMENT_SUCCESS,
+} from './actionTypes'
 
-export const DELETE_COMMENT = "DELETE_COMMENT"
 export const deleteComment = comment => ({
   type: DELETE_COMMENT,
   comment
@@ -11,12 +20,12 @@ export const removeComment = id => dispatch => (
     .then(id => dispatch(deleteComment(id)))
 )
 
-export const RESET_COMMENTS = "RESET_COMMENTS"
+
 export const resetComments = () => ({
   type: RESET_COMMENTS,
 })
 
-export const ADD_COMMENT = "ADD_COMMENT"
+
 export const addComment = comment => ({
   type: ADD_COMMENT,
   comment
@@ -31,7 +40,7 @@ export const newComment = comment => dispatch => {
     .then(comment => dispatch(addComment(comment)))
 }
 
-export const UPDATE_COMMENT = "UPDATE_COMMENT"
+
 export const updateComment = comment => ({
   type: UPDATE_COMMENT,
   comment
@@ -45,9 +54,7 @@ export const editComment = comment => dispatch => {
     .then(comment => dispatch(updateComment(comment)))
 }
 
-export const FETCH_COMMENTS_REQUEST = "FETCH_COMMENTS_REQUEST"
-export const FETCH_COMMENTS_SUCCESS = "FETCH_COMMENTS_SUCCESS"
-export const FETCH_COMMENTS_FAILURE = "FETCH_COMMENTS_FAILURE"
+
 export const fetchCommentsRequest = () => ({
   type: FETCH_COMMENTS_REQUEST
 })
@@ -66,7 +73,7 @@ export const fetchComments = (parentId) => dispatch => {
     .catch(error => dispatch(fetchCommentsFailure(error)))
 }
 
-export const VOTE_COMMENT_SUCCESS = "VOTE_COMMENT_SUCCESS"
+
 export const voteCommentSuccess = comment => ({
   type: VOTE_COMMENT_SUCCESS,
   comment

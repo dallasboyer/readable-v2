@@ -5,7 +5,20 @@ import {
   voteCommentSuccess,
 } from './comments'
 
-export const DELETE_POST = "DELETE_POST"
+import {
+  DELETE_POST,
+  CHANGE_SORT_ORDER,
+  ADD_POST,
+  UPDATE_POST,
+  FETCH_POSTS_REQUEST,
+  FETCH_POSTS_SUCCESS,
+  FETCH_POSTS_FAILURE,
+  VOTE_REQUEST,
+  VOTE_SUCCESS,
+  VOTE_FAILURE,
+} from './actionTypes'
+
+
 export const deletePost = post => ({
   type: DELETE_POST,
   post
@@ -15,13 +28,13 @@ export const removePost = post => dispatch => (
     .then(post => dispatch(deletePost(post)))
 )
 
-export const CHANGE_SORT_ORDER = "CHANGE_SORT_ORDER"
+
 export const changeSortOrder = sortBy => ({
   type: CHANGE_SORT_ORDER,
   sortBy
 })
 
-export const ADD_POST = "ADD_POST"
+
 export const addPost = post => ({
   type: ADD_POST,
   post
@@ -36,7 +49,7 @@ export const newPost = post => dispatch => {
     .then(post => dispatch(addPost(post)))
 }
 
-export const UPDATE_POST = "UPDATE_POST"
+
 export const updatePost = post => ({
   type: UPDATE_POST,
   post
@@ -46,9 +59,7 @@ export const editPost = post => dispatch => {
     .then(post => dispatch(updatePost(post)))
 }
 
-export const FETCH_POSTS_REQUEST = "FETCH_POSTS_REQUEST"
-export const FETCH_POSTS_SUCCESS = "FETCH_POSTS_SUCCESS"
-export const FETCH_POSTS_FAILURE = "FETCH_POSTS_FAILURE"
+
 export const fetchPostsRequest = () => ({
   type: FETCH_POSTS_REQUEST
 })
@@ -67,9 +78,7 @@ export const fetchPosts = () => dispatch => {
     .catch(error => dispatch(fetchPostsFailure(error)))
 }
 
-export const VOTE_REQUEST = "VOTE_REQUEST"
-export const VOTE_SUCCESS = "VOTE_SUCCESS"
-export const VOTE_FAILURE = "VOTE_FAILURE"
+
 export const voteRequest = () => ({
   type: VOTE_REQUEST
 })

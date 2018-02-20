@@ -18,6 +18,7 @@ import {
 
 import * as Helpers from '../utils/Helpers'
 import DeletePostModal from './DeletePostModal'
+import EditPostModal from './EditPostModal'
 import DeleteCommentModal from './DeleteCommentModal'
 import EditCommentModal from './EditCommentModal'
 import Voter from './Voter'
@@ -73,7 +74,11 @@ class ViewPost extends Component {
           <hr />
 
           <Card.Meta textAlign="left">
-            <DeletePostModal {...this.props} post={currentPost} />
+            <Button.Group>
+              <DeletePostModal {...this.props} post={currentPost} />
+              <Button.Or />
+              <EditPostModal {...this.props} post={currentPost} />
+            </Button.Group>
           </Card.Meta>
 
         </Card.Content>
@@ -144,8 +149,7 @@ class ViewPost extends Component {
         (<h1 style={{ textAlign: "center" }}>{`${currentPost.commentCount} Comments`}</h1>)
       :
         (<h1 style={{ textAlign: "center" }}>No Comments</h1>)
-
-
+          
     return (
       <Container>
 

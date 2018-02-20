@@ -7,7 +7,7 @@ import {
   ADD_COMMENT,
   UPDATE_COMMENT,
   VOTE_COMMENT_SUCCESS,
-} from '../actions/comments'
+} from '../actions/actionTypes'
 
 const initState = {
   comments: [],

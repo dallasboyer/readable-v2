@@ -1,4 +1,5 @@
 import {
+  // posts
   CHANGE_SORT_ORDER,
   ADD_POST,
   DELETE_POST,
@@ -9,12 +10,10 @@ import {
   VOTE_REQUEST,
   VOTE_SUCCESS,
   VOTE_FAILURE,
-} from '../actions/posts'
-
-import {
+  // comments
   ADD_COMMENT,
   DELETE_COMMENT,
-} from '../actions/comments'
+} from '../actions/actionTypes'
 
 const initState = {
   posts: [],

@@ -8,7 +8,7 @@ import {
   Container,
   Header,
   Icon,
-  Button
+  Button,
 } from 'semantic-ui-react'
 
 import ViewAll from './components/ViewAll'
@@ -105,7 +105,7 @@ class App extends Component {
 
 const customStyles = {
   app: {
-    backgroundColor: "white",
+    backgroundColor: "#333",
   },
   footer: {
     padding: "50px 0"
