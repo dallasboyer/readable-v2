@@ -29,11 +29,11 @@ class ViewPost extends Component {
     this.props.fetchComments(this.props.match.params.id)
   }
 
-  componentWillUnmount() {
+  componentWillUnmount(){
     this.props.resetComments()
   }
   
-  render() {
+  render(){
     let currentPost = this.props.posts.filter(post => post.id === this.props.match.params.id).pop()
 
     let renderPost = currentPost
@@ -89,7 +89,7 @@ class ViewPost extends Component {
 
 
 
-    let renderComments = this.props.comments.length !== 0
+    let renderComments = currentPost && this.props.comments.length !== 0
       ?
       (<Card.Group
         centered
