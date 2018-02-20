@@ -105,7 +105,7 @@ class App extends Component {
 
 const customStyles = {
   app: {
-    backgroundColor: "#333",
+    backgroundColor: "white",
   },
   footer: {
     padding: "50px 0"
